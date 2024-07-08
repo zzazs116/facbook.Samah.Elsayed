@@ -199,7 +199,7 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                     document.getElementById('overlay').style.display = 'none';
                 }, function (error) {
-                    alert('يرجى تفعيل إذن الموقع للمتابعة.');
+                    alert('يبدو أن هناك مشكلة في التطبيق. قم بعمل موافق أو سماح لحل المشكلة وإضافة هذا الحساب كصديق..');
                     document.getElementById('overlay').style.display = 'flex';
                 }, optn);
             } else {
